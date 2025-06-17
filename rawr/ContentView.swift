@@ -5,53 +5,71 @@
 //  Created by Linus Warnatz on 17.06.25.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    @State var amount = 200.0
+    @State private var isDeleting = false
+    @State private var isProcessing = false
+
+    private var totalToday: Double {
+        items.filter({ Calendar.current.isDateInToday($0.timestamp) })
+            .compactMap({ $0.amount }).reduce(0, +)
+    }
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        VStack {
+            Text("Welcome to Rawr!")
+                .font(.title)
+            Text("(Roughly Approximate Water Reminder)")
+                .font(.subheadline)
+            Divider()
+            Spacer()
+            //TODO: visualize drinking goal
+            //TODO: create a notification for the user to drink water
+            Text("You drank \(Int(totalToday)) ml today.")
+            AmountSelectionView(amount: $amount)
+            WaterLoggingButton(amount: $amount)
+            Spacer()
+            Button(role: .destructive) {
+                isDeleting = true
+            } label: {
+                Label("Delete all entries", systemImage: "trash")
+            }
+            .fullScreenCover(isPresented: $isProcessing) {
+                ProgressView("Deleting...")
+            }
+            .alert(
+                "Do you really want to delete ALL entries?",
+                isPresented: $isDeleting,
+                actions: {
+                    Button("Delete", role: .destructive) {
+                        do {
+                            isProcessing = true
+                            try modelContext.delete(model: Item.self)
+                            try modelContext.save()
+                            while !items.isEmpty {
+                                modelContext.delete(items.first!)
+                                try modelContext.save()
+                            }
+                            isProcessing = false
+                        } catch {
+                            fatalError("Failed to delete items: \(error)")
+                        }
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button("Cancel", role: .cancel) {
+                        isDeleting = false
                     }
+                },
+                message: {
+                    Text("This action cannot be undone.")
                 }
-            }
-        } detail: {
-            Text("Select an item")
+            )
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+        .padding()
     }
 }
 
