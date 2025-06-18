@@ -6,11 +6,61 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		150ECD752E0281AD00B5B0B2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECD712E0281AD00B5B0B2 /* Item.swift */; };
+		150ECD832E0281C600B5B0B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150ECD822E0281C600B5B0B2 /* WidgetKit.framework */; };
+		150ECD852E0281C600B5B0B2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150ECD842E0281C600B5B0B2 /* SwiftUI.framework */; };
+		150ECD942E0281C700B5B0B2 /* WaterTrackingWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 150ECD802E0281C600B5B0B2 /* WaterTrackingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		150ECD9D2E02825200B5B0B2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECD712E0281AD00B5B0B2 /* Item.swift */; };
+		150ECDA42E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */; };
+		150ECDA52E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */; };
+		15BB7B3A2E028DA7003E46F4 /* LogWaterAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */; };
+		15BB7B4D2E028DB1003E46F4 /* LogWaterAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		150ECD922E0281C700B5B0B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1530ECAE2E01C5EB00A3F4F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 150ECD7F2E0281C600B5B0B2;
+			remoteInfo = WaterTrackingWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		150ECD952E0281C700B5B0B2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				150ECD942E0281C700B5B0B2 /* WaterTrackingWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		150ECD712E0281AD00B5B0B2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		150ECD802E0281C600B5B0B2 /* WaterTrackingWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WaterTrackingWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		150ECD822E0281C600B5B0B2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		150ECD842E0281C600B5B0B2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		150ECD9E2E0285FE00B5B0B2 /* WaterTrackingWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterTrackingWidgetExtension.entitlements; sourceTree = "<group>"; };
+		150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLoggingButtonContent.swift; sourceTree = "<group>"; };
 		1530ECB62E01C5EB00A3F4F5 /* rawr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rawr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWaterAppIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		150ECD992E0281C700B5B0B2 /* Exceptions for "WaterTrackingWidget" folder in "WaterTrackingWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 150ECD7F2E0281C600B5B0B2 /* WaterTrackingWidgetExtension */;
+		};
 		1530ECC32E01C5EC00A3F4F5 /* Exceptions for "rawr" folder in "rawr" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -21,6 +71,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		150ECD862E0281C600B5B0B2 /* WaterTrackingWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				150ECD992E0281C700B5B0B2 /* Exceptions for "WaterTrackingWidget" folder in "WaterTrackingWidgetExtension" target */,
+			);
+			path = WaterTrackingWidget;
+			sourceTree = "<group>";
+		};
 		1530ECB82E01C5EB00A3F4F5 /* rawr */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +90,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		150ECD7D2E0281C600B5B0B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				150ECD852E0281C600B5B0B2 /* SwiftUI.framework in Frameworks */,
+				150ECD832E0281C600B5B0B2 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1530ECB32E01C5EB00A3F4F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +109,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		150ECD812E0281C600B5B0B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				150ECD822E0281C600B5B0B2 /* WidgetKit.framework */,
+				150ECD842E0281C600B5B0B2 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		150ECD9A2E0281F000B5B0B2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */,
+				150ECD712E0281AD00B5B0B2 /* Item.swift */,
+				150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		1530ECAD2E01C5EB00A3F4F5 = {
 			isa = PBXGroup;
 			children = (
+				150ECD9E2E0285FE00B5B0B2 /* WaterTrackingWidgetExtension.entitlements */,
+				150ECD9A2E0281F000B5B0B2 /* Shared */,
 				1530ECB82E01C5EB00A3F4F5 /* rawr */,
+				150ECD862E0281C600B5B0B2 /* WaterTrackingWidget */,
+				150ECD812E0281C600B5B0B2 /* Frameworks */,
 				1530ECB72E01C5EB00A3F4F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				1530ECB62E01C5EB00A3F4F5 /* rawr.app */,
+				150ECD802E0281C600B5B0B2 /* WaterTrackingWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +152,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		150ECD7F2E0281C600B5B0B2 /* WaterTrackingWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 150ECD982E0281C700B5B0B2 /* Build configuration list for PBXNativeTarget "WaterTrackingWidgetExtension" */;
+			buildPhases = (
+				150ECD7C2E0281C600B5B0B2 /* Sources */,
+				150ECD7D2E0281C600B5B0B2 /* Frameworks */,
+				150ECD7E2E0281C600B5B0B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				150ECD862E0281C600B5B0B2 /* WaterTrackingWidget */,
+			);
+			name = WaterTrackingWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = WaterTrackingWidgetExtension;
+			productReference = 150ECD802E0281C600B5B0B2 /* WaterTrackingWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1530ECB52E01C5EB00A3F4F5 /* rawr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1530ECC42E01C5EC00A3F4F5 /* Build configuration list for PBXNativeTarget "rawr" */;
@@ -68,10 +181,12 @@
 				1530ECB22E01C5EB00A3F4F5 /* Sources */,
 				1530ECB32E01C5EB00A3F4F5 /* Frameworks */,
 				1530ECB42E01C5EB00A3F4F5 /* Resources */,
+				150ECD952E0281C700B5B0B2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				150ECD932E0281C700B5B0B2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				1530ECB82E01C5EB00A3F4F5 /* rawr */,
@@ -93,6 +208,9 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					150ECD7F2E0281C600B5B0B2 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					1530ECB52E01C5EB00A3F4F5 = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -113,11 +231,19 @@
 			projectRoot = "";
 			targets = (
 				1530ECB52E01C5EB00A3F4F5 /* rawr */,
+				150ECD7F2E0281C600B5B0B2 /* WaterTrackingWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		150ECD7E2E0281C600B5B0B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1530ECB42E01C5EB00A3F4F5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,16 +254,93 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		150ECD7C2E0281C600B5B0B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15BB7B4D2E028DB1003E46F4 /* LogWaterAppIntent.swift in Sources */,
+				150ECDA42E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */,
+				150ECD9D2E02825200B5B0B2 /* Item.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1530ECB22E01C5EB00A3F4F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150ECD752E0281AD00B5B0B2 /* Item.swift in Sources */,
+				150ECDA52E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */,
+				15BB7B3A2E028DA7003E46F4 /* LogWaterAppIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		150ECD932E0281C700B5B0B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 150ECD7F2E0281C600B5B0B2 /* WaterTrackingWidgetExtension */;
+			targetProxy = 150ECD922E0281C700B5B0B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		150ECD962E0281C700B5B0B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaterTrackingWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.WaterTrackingWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		150ECD972E0281C700B5B0B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaterTrackingWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.WaterTrackingWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		1530ECC52E01C5EC00A3F4F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -320,6 +523,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		150ECD982E0281C700B5B0B2 /* Build configuration list for PBXNativeTarget "WaterTrackingWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				150ECD962E0281C700B5B0B2 /* Debug */,
+				150ECD972E0281C700B5B0B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1530ECB12E01C5EB00A3F4F5 /* Build configuration list for PBXProject "rawr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

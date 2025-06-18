@@ -19,6 +19,14 @@ struct ContentView: View {
         items.filter({ Calendar.current.isDateInToday($0.timestamp) })
             .compactMap({ $0.amount }).reduce(0, +)
     }
+    
+    private func logWater(amount: Double) {
+        withAnimation {
+            let item = Item(timestamp: Date(), amount: amount)
+            modelContext.insert(item)
+            self.amount = 0
+        }
+    }
 
     var body: some View {
         VStack {
@@ -32,7 +40,7 @@ struct ContentView: View {
             //TODO: create a notification for the user to drink water
             Text("You drank \(Int(totalToday)) ml today.")
             AmountSelectionView(amount: $amount)
-            WaterLoggingButton(amount: $amount)
+            WaterLoggingButton(amount: $amount, action: logWater)
             Spacer()
             Button(role: .destructive) {
                 isDeleting = true
