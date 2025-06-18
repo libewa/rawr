@@ -12,7 +12,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) var context
-    @Query private var items: [Item]
+    @Query var items: [Item]
     @Query private var notifications: [Notification]
     @State var amount = 200.0
     @State private var isDeleting = false
@@ -32,17 +32,23 @@ struct ContentView: View {
     ]
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Text("Welcome to Rawr!")
                 .font(.title)
             Text("(Roughly Approximate Water Reminder)")
                 .font(.subheadline)
             Divider()
             Spacer()
-            //TODO: visualize drinking goal
-            //TODO: create a notification for the user to drink water
-            Text("You drank \(Int(totalToday)) ml today.")
-            AmountSelectionView(amount: $amount)
+            Text("You drank \(Int(totalToday))\u{202f}ml today.")
+            TargetProgressView(amount: totalToday)
+            HStack {
+                TextField("Amount", value: $amount, formatter: NumberFormatter())
+                    .multilineTextAlignment(.center)
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.decimalPad)
+                Text("ml")
+            }
+            .frame(width: 100)
             WaterLoggingButton(amount: $amount) {
                 logWater(amount: $0, notifications: notifications, totalToday: totalToday, modelContext: context)
             }

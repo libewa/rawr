@@ -54,13 +54,18 @@ extension ContentView {
                         let amount = sample.quantity.doubleValue(
                             for: .literUnit(with: .milli)
                         )
-                        context.insert(
-                            Item(
-                                timestamp: sample.startDate,
-                                amount: amount,
-                                id: sample.uuid
+                        if !items.contains(where: { $0.id == sample.uuid }) {
+                            print("Added sample: \(sample.uuid) with amount: \(amount)")
+                            context.insert(
+                                Item(
+                                    timestamp: sample.startDate,
+                                    amount: amount,
+                                    id: sample.uuid
+                                )
                             )
-                        )
+                        } else {
+                            print("Sample already exists: \(sample.uuid)")
+                        }
                     }
                     /*
                     for sample in results.deletedObjects {
