@@ -11,12 +11,12 @@ struct AmountSelectionView: View {
     @Binding var amount: Double
 
     private func changeAmount(by diff: Double) {
-            amount = ((amount + diff) / 10).rounded() * 10
-            if amount > maxAmount {
-                amount = maxAmount
-            } else if amount < 0 {
-                amount = 0
-            }
+        amount = ((amount + diff) / 10).rounded() * 10
+        if amount > maxAmount {
+            amount = maxAmount
+        } else if amount < 0 {
+            amount = 0
+        }
     }
 
     let maxAmount: Double = 2000.0
@@ -27,6 +27,7 @@ struct AmountSelectionView: View {
             } label: {
                 Label("Increase", systemImage: "plus")
                     .labelStyle(.iconOnly)
+                    .frame(height: 20)
             }
             GeometryReader { g in
                 ZStack {
@@ -36,7 +37,7 @@ struct AmountSelectionView: View {
                         .frame(height: g.size.height / maxAmount * amount)
                         .offset(
                             y: g.size.height / 2
-                            - (g.size.height / maxAmount * amount) / 2
+                                - (g.size.height / maxAmount * amount) / 2
                         )
                         .foregroundStyle(.blue.mix(with: .white, by: 0.15))
                     Text("\(Int(amount))\u{202f}ml")
@@ -50,15 +51,17 @@ struct AmountSelectionView: View {
                     }
             )
             .padding(.vertical, 5)
-            .padding(.bottom)
+            .frame(width: 80, height: 200)
             Button {
                 changeAmount(by: -10)
             } label: {
                 Label("Decrease", systemImage: "minus")
                     .labelStyle(.iconOnly)
+                    .frame(height: 20)
             }
         }
-        .frame(width: 80, height: 200)
+        .buttonBorderShape(.circle)
+        .buttonStyle(.bordered)
     }
 }
 

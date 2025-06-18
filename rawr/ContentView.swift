@@ -5,28 +5,63 @@
 //  Created by Linus Warnatz on 17.06.25.
 //
 
+import Foundation
+import HealthKit
 import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var context
     @Query private var items: [Item]
     @State var amount = 200.0
     @State private var isDeleting = false
     @State private var isProcessing = false
+    @State private var syncHealthData = UserDefaults().bool(
+        forKey: "syncHealthData"
+    )
 
     private var totalToday: Double {
-        items.filter({ Calendar.current.isDateInToday($0.timestamp) })
-            .compactMap({ $0.amount }).reduce(0, +)
+        return items.filter({
+            Calendar.current.isDateInToday($0.timestamp)
+        }).compactMap({ $0.amount }).reduce(0, +)
     }
-    
+
     private func logWater(amount: Double) {
         withAnimation {
-            let item = Item(timestamp: Date(), amount: amount)
-            modelContext.insert(item)
             self.amount = 0
+
+            Task {
+                if HKHealthStore.isHealthDataAvailable() && syncHealthData {
+                    let healthStore = HKHealthStore()
+                    let type = HKQuantityType(.dietaryWater)
+                    let quantity = HKQuantity(
+                        unit: .literUnit(with: .milli),
+                        doubleValue: amount
+                    )
+                    let sample = HKQuantitySample(
+                        type: type,
+                        quantity: quantity,
+                        start: Date(),
+                        end: Date()
+                    )
+                    try await healthStore.save(sample)
+                    let item = Item(
+                        timestamp: Date(),
+                        amount: amount,
+                        id: sample.uuid
+                    )
+                    context.insert(item)
+                } else {
+                    let item = Item(timestamp: Date(), amount: amount)
+                    context.insert(item)
+                }
+            }
         }
     }
+
+    let healthTypes: Set = [
+        HKQuantityType(.dietaryWater)
+    ]
 
     var body: some View {
         VStack {
@@ -35,6 +70,17 @@ struct ContentView: View {
             Text("(Roughly Approximate Water Reminder)")
                 .font(.subheadline)
             Divider()
+            Toggle("Enable Health integration", isOn: $syncHealthData)
+                .onChange(of: syncHealthData, initial: true) {
+                    UserDefaults().set(syncHealthData, forKey: "syncHealthData")
+                    if syncHealthData {
+                        Task {
+                            try await enableAndSyncHealthIntegration(
+                                types: healthTypes
+                            )
+                        }
+                    }
+                }
             Spacer()
             //TODO: visualize drinking goal
             //TODO: create a notification for the user to drink water
@@ -42,39 +88,9 @@ struct ContentView: View {
             AmountSelectionView(amount: $amount)
             WaterLoggingButton(amount: $amount, action: logWater)
             Spacer()
-            Button(role: .destructive) {
-                isDeleting = true
-            } label: {
-                Label("Delete all entries", systemImage: "trash")
-            }
-            .fullScreenCover(isPresented: $isProcessing) {
-                ProgressView("Deleting...")
-            }
-            .alert(
-                "Do you really want to delete ALL entries?",
-                isPresented: $isDeleting,
-                actions: {
-                    Button("Delete", role: .destructive) {
-                        do {
-                            isProcessing = true
-                            try modelContext.delete(model: Item.self)
-                            try modelContext.save()
-                            while !items.isEmpty {
-                                modelContext.delete(items.first!)
-                                try modelContext.save()
-                            }
-                            isProcessing = false
-                        } catch {
-                            fatalError("Failed to delete items: \(error)")
-                        }
-                    }
-                    Button("Cancel", role: .cancel) {
-                        isDeleting = false
-                    }
-                },
-                message: {
-                    Text("This action cannot be undone.")
-                }
+            DeleteAllDataButton(
+                isDeleting: $isDeleting,
+                isProcessing: $isProcessing
             )
         }
         .padding()

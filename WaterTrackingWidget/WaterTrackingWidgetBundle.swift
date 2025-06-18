@@ -5,8 +5,8 @@
 //  Created by Linus Warnatz on 18.06.25.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 @main
 struct WaterTrackingWidgetBundle: WidgetBundle {

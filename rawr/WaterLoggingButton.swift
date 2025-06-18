@@ -5,8 +5,8 @@
 //  Created by Linus Warnatz on 17.06.25.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 import WidgetKit
 
 struct WaterLoggingButton: View {
@@ -27,7 +27,11 @@ struct WaterLoggingButton: View {
                 action(amount)
                 WidgetCenter.shared.reloadAllTimelines()
             } label: {
-                WaterLoggingButtonContent(amount: amount, animation: animation, failAnimation: failAnimation)
+                WaterLoggingButtonContent(
+                    amount: amount,
+                    animation: animation,
+                    failAnimation: failAnimation
+                )
             }
             Text("Tap to log water")
                 .font(.footnote)

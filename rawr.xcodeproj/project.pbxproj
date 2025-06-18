@@ -297,6 +297,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WaterTrackingWidget;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -325,6 +327,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WaterTrackingWidget;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

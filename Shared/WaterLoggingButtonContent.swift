@@ -35,5 +35,9 @@ struct WaterLoggingButtonContent: View {
 }
 
 #Preview {
-    WaterLoggingButtonContent(amount: 200, animation: false, failAnimation: false)
+    WaterLoggingButtonContent(
+        amount: 200,
+        animation: false,
+        failAnimation: false
+    )
 }
