@@ -12,7 +12,8 @@ import SwiftUI
 struct rawrApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self
+            Item.self,
+            Notification.self,
         ])
         let modelConfiguration = ModelConfiguration(
             schema: schema,

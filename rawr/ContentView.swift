@@ -13,6 +13,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.modelContext) var context
     @Query private var items: [Item]
+    @Query var notifications: [Notification]
     @State var amount = 200.0
     @State private var isDeleting = false
     @State private var isProcessing = false
@@ -26,10 +27,64 @@ struct ContentView: View {
         }).compactMap({ $0.amount }).reduce(0, +)
     }
 
+    func createNotification(timestamp: Date) {
+        Task {
+            try await UNUserNotificationCenter.current()
+                .requestAuthorization(options: [.alert, .sound])
+            let uuid = UUID()
+            let dose = Int(
+                doseToMeetGoal(
+                    goal: 2000.0,
+                    amountToday: totalToday,
+                    timestamp: timestamp,
+                    endOfDay: Calendar.current.date(
+                        byAdding: .hour,
+                        value: 20,
+                        to: Calendar.current.startOfDay(for: Date())
+                    )!
+                )
+            )
+            let content = UNMutableNotificationContent()
+            content.title = "Drink Water"
+            content.body =
+            "Drink \(dose) ml of water now to still meet your daily goal!"
+            let trigger = UNCalendarNotificationTrigger(
+                dateMatching: Calendar.current.dateComponents(
+                    [.hour, .minute, .second],
+                    from: timestamp
+                ),
+                repeats: false
+            )
+            let request = UNNotificationRequest(
+                identifier: uuid.uuidString,
+                content: content,
+                trigger: trigger
+            )
+            let notificationCenter = UNUserNotificationCenter.current()
+            try await notificationCenter.add(request)
+            context.insert(Notification(id: uuid, timestamp: timestamp))
+            print("Created notification for \(timestamp) with id \(uuid.uuidString)")
+        }
+    }
+
     private func logWater(amount: Double) {
         withAnimation {
             self.amount = 0
-
+            while notifications.sorted().first?.timestamp ?? Date.distantFuture < Date() {
+                context.delete(notifications.sorted()[0])
+            }
+            if let nextNotification = notifications.sorted().first {
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.removePendingNotificationRequests(
+                    withIdentifiers: [nextNotification.id.uuidString])
+            }
+            let inOneHour = Calendar.current.date(
+                byAdding: DateComponents(hour: 1),
+                to: Date()
+            )!
+            if notifications.sorted().first?.timestamp ?? Date.distantFuture > inOneHour {
+                createNotification(timestamp: inOneHour)
+            }
             Task {
                 if HKHealthStore.isHealthDataAvailable() && syncHealthData {
                     let healthStore = HKHealthStore()
