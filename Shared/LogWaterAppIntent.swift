@@ -9,6 +9,7 @@ import AppIntents
 import HealthKit
 import SwiftData
 import WidgetKit
+import SwiftUI
 
 struct LogWaterAppIntent: AppIntent {
     static var title: LocalizedStringResource = "Log Water"
@@ -23,6 +24,14 @@ struct LogWaterAppIntent: AppIntent {
         controlStyle: .field
     )
     var amount: Double
+    
+    @Query var notifications: [Notification]
+    @Query private var items: [Item]
+    private var totalToday: Double {
+        return items.filter({
+            Calendar.current.isDateInToday($0.timestamp)
+        }).compactMap({ $0.amount }).reduce(0, +)
+    }
 
     @MainActor func perform() async throws -> some IntentResult {
         let sharedModelContainer: ModelContainer = {
@@ -45,31 +54,8 @@ struct LogWaterAppIntent: AppIntent {
         }()
 
         let context = ModelContext(sharedModelContainer)
-        if HKHealthStore.isHealthDataAvailable() {
-            let healthStore = HKHealthStore()
-            let type = HKQuantityType(.dietaryWater)
-            let quantity = HKQuantity(
-                unit: .literUnit(with: .milli),
-                doubleValue: amount
-            )
-            let sample = HKQuantitySample(
-                type: type,
-                quantity: quantity,
-                start: Date(),
-                end: Date()
-            )
-            try await healthStore.save(sample)
-            let item = Item(
-                timestamp: Date(),
-                amount: amount,
-                id: sample.uuid
-            )
-            context.insert(item)
-        } else {
-            let item = Item(timestamp: Date(), amount: amount)
-            context.insert(item)
-        }
-        WidgetCenter.shared.reloadAllTimelines()
+        
+        logWater(amount: amount, notifications: notifications, totalToday: totalToday, modelContext: context)
         return .result()
     }
 }

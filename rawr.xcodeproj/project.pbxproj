@@ -14,6 +14,14 @@
 		150ECD9D2E02825200B5B0B2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECD712E0281AD00B5B0B2 /* Item.swift */; };
 		150ECDA42E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */; };
 		150ECDA52E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */; };
+		15AB2A6D2E02C54900AA6860 /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
+		15AB2A7E2E02C6CB00AA6860 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7D2E02C6C700AA6860 /* Notification.swift */; };
+		15AB2A802E02DF5C00AA6860 /* createNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7F2E02DF5400AA6860 /* createNotification.swift */; };
+		15AB2A812E02DFC500AA6860 /* createNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7F2E02DF5400AA6860 /* createNotification.swift */; };
+		15AB2A832E02E00000AA6860 /* logWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A822E02DFFD00AA6860 /* logWater.swift */; };
+		15AB2A842E02E0F800AA6860 /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
+		15AB2A852E02E19C00AA6860 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7D2E02C6C700AA6860 /* Notification.swift */; };
+		15AB2A862E02E1A800AA6860 /* logWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A822E02DFFD00AA6860 /* logWater.swift */; };
 		15BB7B3A2E028DA7003E46F4 /* LogWaterAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */; };
 		15BB7B4D2E028DB1003E46F4 /* LogWaterAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +58,10 @@
 		150ECD9E2E0285FE00B5B0B2 /* WaterTrackingWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterTrackingWidgetExtension.entitlements; sourceTree = "<group>"; };
 		150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLoggingButtonContent.swift; sourceTree = "<group>"; };
 		1530ECB62E01C5EB00A3F4F5 /* rawr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rawr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doseToMeetGoal.swift; sourceTree = "<group>"; };
+		15AB2A7D2E02C6C700AA6860 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		15AB2A7F2E02DF5400AA6860 /* createNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createNotification.swift; sourceTree = "<group>"; };
+		15AB2A822E02DFFD00AA6860 /* logWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logWater.swift; sourceTree = "<group>"; };
 		15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWaterAppIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,8 +133,12 @@
 		150ECD9A2E0281F000B5B0B2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				15AB2A7F2E02DF5400AA6860 /* createNotification.swift */,
 				15BB7B362E028DA7003E46F4 /* LogWaterAppIntent.swift */,
 				150ECD712E0281AD00B5B0B2 /* Item.swift */,
+				15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */,
+				15AB2A822E02DFFD00AA6860 /* logWater.swift */,
+				15AB2A7D2E02C6C700AA6860 /* Notification.swift */,
 				150ECDA32E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift */,
 			);
 			path = Shared;
@@ -259,7 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15BB7B4D2E028DB1003E46F4 /* LogWaterAppIntent.swift in Sources */,
+				15AB2A812E02DFC500AA6860 /* createNotification.swift in Sources */,
+				15AB2A852E02E19C00AA6860 /* Notification.swift in Sources */,
 				150ECDA42E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */,
+				15AB2A842E02E0F800AA6860 /* doseToMeetGoal.swift in Sources */,
+				15AB2A862E02E1A800AA6860 /* logWater.swift in Sources */,
 				150ECD9D2E02825200B5B0B2 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +291,10 @@
 				150ECD752E0281AD00B5B0B2 /* Item.swift in Sources */,
 				150ECDA52E028A8A00B5B0B2 /* WaterLoggingButtonContent.swift in Sources */,
 				15BB7B3A2E028DA7003E46F4 /* LogWaterAppIntent.swift in Sources */,
+				15AB2A832E02E00000AA6860 /* logWater.swift in Sources */,
+				15AB2A802E02DF5C00AA6860 /* createNotification.swift in Sources */,
+				15AB2A6D2E02C54900AA6860 /* doseToMeetGoal.swift in Sources */,
+				15AB2A7E2E02C6CB00AA6860 /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

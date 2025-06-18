@@ -13,11 +13,11 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.modelContext) var context
     @Query private var items: [Item]
-    @Query var notifications: [Notification]
+    @Query private var notifications: [Notification]
     @State var amount = 200.0
     @State private var isDeleting = false
     @State private var isProcessing = false
-    @State private var syncHealthData = UserDefaults().bool(
+    @State private var syncHealthData = UserDefaults.standard.bool(
         forKey: "syncHealthData"
     )
 
@@ -25,93 +25,6 @@ struct ContentView: View {
         return items.filter({
             Calendar.current.isDateInToday($0.timestamp)
         }).compactMap({ $0.amount }).reduce(0, +)
-    }
-
-    func createNotification(timestamp: Date) {
-        Task {
-            try await UNUserNotificationCenter.current()
-                .requestAuthorization(options: [.alert, .sound])
-            let uuid = UUID()
-            let dose = Int(
-                doseToMeetGoal(
-                    goal: 2000.0,
-                    amountToday: totalToday,
-                    timestamp: timestamp,
-                    endOfDay: Calendar.current.date(
-                        byAdding: .hour,
-                        value: 20,
-                        to: Calendar.current.startOfDay(for: Date())
-                    )!
-                )
-            )
-            let content = UNMutableNotificationContent()
-            content.title = "Drink Water"
-            content.body =
-            "Drink \(dose) ml of water now to still meet your daily goal!"
-            let trigger = UNCalendarNotificationTrigger(
-                dateMatching: Calendar.current.dateComponents(
-                    [.hour, .minute, .second],
-                    from: timestamp
-                ),
-                repeats: false
-            )
-            let request = UNNotificationRequest(
-                identifier: uuid.uuidString,
-                content: content,
-                trigger: trigger
-            )
-            let notificationCenter = UNUserNotificationCenter.current()
-            try await notificationCenter.add(request)
-            context.insert(Notification(id: uuid, timestamp: timestamp))
-            print("Created notification for \(timestamp) with id \(uuid.uuidString)")
-        }
-    }
-
-    private func logWater(amount: Double) {
-        withAnimation {
-            self.amount = 0
-            while notifications.sorted().first?.timestamp ?? Date.distantFuture < Date() {
-                context.delete(notifications.sorted()[0])
-            }
-            if let nextNotification = notifications.sorted().first {
-                let notificationCenter = UNUserNotificationCenter.current()
-                notificationCenter.removePendingNotificationRequests(
-                    withIdentifiers: [nextNotification.id.uuidString])
-            }
-            let inOneHour = Calendar.current.date(
-                byAdding: DateComponents(hour: 1),
-                to: Date()
-            )!
-            if notifications.sorted().first?.timestamp ?? Date.distantFuture > inOneHour {
-                createNotification(timestamp: inOneHour)
-            }
-            Task {
-                if HKHealthStore.isHealthDataAvailable() && syncHealthData {
-                    let healthStore = HKHealthStore()
-                    let type = HKQuantityType(.dietaryWater)
-                    let quantity = HKQuantity(
-                        unit: .literUnit(with: .milli),
-                        doubleValue: amount
-                    )
-                    let sample = HKQuantitySample(
-                        type: type,
-                        quantity: quantity,
-                        start: Date(),
-                        end: Date()
-                    )
-                    try await healthStore.save(sample)
-                    let item = Item(
-                        timestamp: Date(),
-                        amount: amount,
-                        id: sample.uuid
-                    )
-                    context.insert(item)
-                } else {
-                    let item = Item(timestamp: Date(), amount: amount)
-                    context.insert(item)
-                }
-            }
-        }
     }
 
     let healthTypes: Set = [
@@ -127,7 +40,7 @@ struct ContentView: View {
             Divider()
             Toggle("Enable Health integration", isOn: $syncHealthData)
                 .onChange(of: syncHealthData, initial: true) {
-                    UserDefaults().set(syncHealthData, forKey: "syncHealthData")
+                    UserDefaults.standard.set(syncHealthData, forKey: "syncHealthData")
                     if syncHealthData {
                         Task {
                             try await enableAndSyncHealthIntegration(
@@ -141,7 +54,9 @@ struct ContentView: View {
             //TODO: create a notification for the user to drink water
             Text("You drank \(Int(totalToday)) ml today.")
             AmountSelectionView(amount: $amount)
-            WaterLoggingButton(amount: $amount, action: logWater)
+            WaterLoggingButton(amount: $amount) {
+                logWater(amount: $0, notifications: notifications, totalToday: totalToday, modelContext: context)
+            }
             Spacer()
             DeleteAllDataButton(
                 isDeleting: $isDeleting,
