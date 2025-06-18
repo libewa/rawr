@@ -38,17 +38,6 @@ struct ContentView: View {
             Text("(Roughly Approximate Water Reminder)")
                 .font(.subheadline)
             Divider()
-            Toggle("Enable Health integration", isOn: $syncHealthData)
-                .onChange(of: syncHealthData, initial: true) {
-                    UserDefaults.standard.set(syncHealthData, forKey: "syncHealthData")
-                    if syncHealthData {
-                        Task {
-                            try await enableAndSyncHealthIntegration(
-                                types: healthTypes
-                            )
-                        }
-                    }
-                }
             Spacer()
             //TODO: visualize drinking goal
             //TODO: create a notification for the user to drink water
@@ -58,10 +47,22 @@ struct ContentView: View {
                 logWater(amount: $0, notifications: notifications, totalToday: totalToday, modelContext: context)
             }
             Spacer()
+            Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+                Label("Open App Settings", systemImage: "gearshape")
+            }
             DeleteAllDataButton(
                 isDeleting: $isDeleting,
                 isProcessing: $isProcessing
             )
+        }
+        .onChange(of: syncHealthData, initial: true) {
+            if syncHealthData {
+                Task {
+                    try await enableAndSyncHealthIntegration(
+                        types: healthTypes
+                    )
+                }
+            }
         }
         .padding()
     }
