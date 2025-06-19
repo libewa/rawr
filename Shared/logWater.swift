@@ -5,29 +5,43 @@
 //  Created by Linus Warnatz on 18.06.25.
 //
 
-import SwiftUI
-import SwiftData
 import HealthKit
+import SwiftData
+import SwiftUI
 
-func logWater(amount: Double, notifications: [Notification], totalToday: Double, modelContext context: ModelContext) {
+func logWater(
+    amount: Double,
+    notifications: [Notification],
+    totalToday: Double,
+    modelContext context: ModelContext
+) {
+    print("Logging \(amount)ml of water")
     withAnimation {
-        while notifications.sorted().first?.timestamp ?? Date.distantFuture < Date() {
-            context.delete(notifications.sorted()[0])
-        }
-        if let nextNotification = notifications.sorted().first {
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.removePendingNotificationRequests(
-                withIdentifiers: [nextNotification.id.uuidString])
-        }
         let inOneHour = Calendar.current.date(
             byAdding: DateComponents(hour: 1),
             to: Date()
         )!
-        if notifications.sorted().first?.timestamp ?? Date.distantFuture > inOneHour {
-            createNotification(timestamp: inOneHour, pastIntake: totalToday, modelContext: context)
+        let inOneAndAHalfHours = Calendar.current.date(
+            byAdding: DateComponents(hour: 1, minute: 30),
+            to: Date()
+        )!
+        while notifications.sorted().first?.timestamp ?? Date.distantFuture
+            <= inOneAndAHalfHours
+        {
+            print(
+                "Deleted notification with timestamp \(notifications.sorted()[0].timestamp)"
+            )
+            context.delete(notifications.sorted()[0])
         }
+        createNotification(
+            timestamp: inOneHour,
+            pastIntake: totalToday,
+            modelContext: context
+        )
         Task {
-            if HKHealthStore.isHealthDataAvailable() && UserDefaults.standard.bool(forKey: "syncHealthData") {
+            if HKHealthStore.isHealthDataAvailable()
+                && UserDefaults.standard.bool(forKey: "syncHealthData")
+            {
                 let healthStore = HKHealthStore()
                 let type = HKQuantityType(.dietaryWater)
                 let quantity = HKQuantity(
@@ -50,7 +64,9 @@ func logWater(amount: Double, notifications: [Notification], totalToday: Double,
             } else {
                 let item = Item(timestamp: Date(), amount: amount)
                 context.insert(item)
+                print("Logged water without HealthKit integration")
+                try context.save()
             }
         }
     }
-    }
+}

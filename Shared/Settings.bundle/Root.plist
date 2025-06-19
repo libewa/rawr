@@ -8,6 +8,18 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Key</key>
+			<string>dailyGoal</string>
+			<key>Title</key>
+			<string>Daily Goal (ml)</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>DefaultValue</key>
+			<integer>2000</integer>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
 			<string>Enable Health integration</string>
@@ -15,6 +27,8 @@
 			<string>syncHealthData</string>
 			<key>DefaultValue</key>
 			<false/>
+			<key>TrueValue</key>
+			<string></string>
 		</dict>
 	</array>
 </dict>

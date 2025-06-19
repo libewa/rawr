@@ -22,9 +22,12 @@ struct ContentView: View {
     )
 
     private var totalToday: Double {
-        return items.filter({
+        print(items)
+        let total = items.filter({
             Calendar.current.isDateInToday($0.timestamp)
         }).compactMap({ $0.amount }).reduce(0, +)
+        print("Total today: \(total)ml")
+        return total
     }
 
     let healthTypes: Set = [

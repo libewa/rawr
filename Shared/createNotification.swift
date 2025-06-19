@@ -17,7 +17,7 @@ func createNotification(timestamp: Date, pastIntake totalToday: Double, modelCon
         let uuid = UUID()
         let dose = Int(
             doseToMeetGoal(
-                goal: 2000.0,
+                goal: UserDefaults.standard.double(forKey: "dailyGoal"),
                 amountToday: totalToday,
                 timestamp: timestamp,
                 endOfDay: Calendar.current.date(
