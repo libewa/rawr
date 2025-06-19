@@ -55,7 +55,9 @@ extension ContentView {
                             for: .literUnit(with: .milli)
                         )
                         if !items.contains(where: { $0.id == sample.uuid }) {
-                            print("Added sample: \(sample.uuid) with amount: \(amount)")
+                            print(
+                                "Added sample: \(sample.uuid) with amount: \(amount)"
+                            )
                             context.insert(
                                 Item(
                                     timestamp: sample.startDate,

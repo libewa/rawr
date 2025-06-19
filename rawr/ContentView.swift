@@ -45,18 +45,30 @@ struct ContentView: View {
             Text("You drank \(Int(totalToday))\u{202f}ml today.")
             TargetProgressView(amount: totalToday)
             HStack {
-                TextField("Amount", value: $amount, formatter: NumberFormatter())
-                    .multilineTextAlignment(.center)
-                    .textFieldStyle(.roundedBorder)
-                    .keyboardType(.decimalPad)
+                TextField(
+                    "Amount",
+                    value: $amount,
+                    formatter: NumberFormatter()
+                )
+                .multilineTextAlignment(.center)
+                .textFieldStyle(.roundedBorder)
+                .keyboardType(.decimalPad)
                 Text("ml")
             }
             .frame(width: 100)
-            WaterLoggingButton(amount: $amount) {
-                logWater(amount: $0, notifications: notifications, totalToday: totalToday, modelContext: context)
-            }
+            WaterLoggingButton(
+                amount: $amount,
+                action: .closure({
+                    logWater(
+                        amount: $0,
+                        totalToday: totalToday,
+                        modelContext: context
+                    )
+                })
+            )
             Spacer()
-            Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+            Link(destination: URL(string: UIApplication.openSettingsURLString)!)
+            {
                 Label("Open App Settings", systemImage: "gearshape")
             }
             DeleteAllDataButton(

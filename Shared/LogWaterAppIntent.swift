@@ -8,8 +8,8 @@
 import AppIntents
 import HealthKit
 import SwiftData
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct LogWaterAppIntent: AppIntent {
     static var title: LocalizedStringResource = "Log Water"
@@ -24,7 +24,7 @@ struct LogWaterAppIntent: AppIntent {
         controlStyle: .field
     )
     var amount: Double
-    
+
     @Query var notifications: [Notification]
     @Query private var items: [Item]
     private var totalToday: Double {
@@ -54,8 +54,12 @@ struct LogWaterAppIntent: AppIntent {
         }()
 
         let context = ModelContext(sharedModelContainer)
-        
-        logWater(amount: amount, notifications: notifications, totalToday: totalToday, modelContext: context)
+
+        logWater(
+            amount: amount,
+            totalToday: totalToday,
+            modelContext: context
+        )
         return .result()
     }
 }

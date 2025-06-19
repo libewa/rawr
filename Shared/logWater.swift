@@ -8,10 +8,10 @@
 import HealthKit
 import SwiftData
 import SwiftUI
+import WidgetKit
 
 func logWater(
     amount: Double,
-    notifications: [Notification],
     totalToday: Double,
     modelContext context: ModelContext
 ) {
@@ -25,14 +25,10 @@ func logWater(
             byAdding: DateComponents(hour: 1, minute: 30),
             to: Date()
         )!
-        while notifications.sorted().first?.timestamp ?? Date.distantFuture
-            <= inOneAndAHalfHours
-        {
-            print(
-                "Deleted notification with timestamp \(notifications.sorted()[0].timestamp)"
-            )
-            context.delete(notifications.sorted()[0])
+        let predicate = #Predicate<Notification> {
+            $0.timestamp <= inOneAndAHalfHours
         }
+        try! context.delete(model: Notification.self, where: predicate)
         createNotification(
             timestamp: inOneHour,
             pastIntake: totalToday,
@@ -67,6 +63,7 @@ func logWater(
                 print("Logged water without HealthKit integration")
                 try context.save()
             }
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 }

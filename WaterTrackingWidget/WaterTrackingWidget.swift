@@ -68,11 +68,12 @@ struct WaterTrackingWidgetView: View {
         VStack {
             Text("\(Int(totalToday)) ml today")
 
-            Button(
-                intent: LogWaterAppIntent(amount: entry.configuration.$amount)
-            ) {
-                WaterLoggingButtonContent(amount: entry.configuration.amount)
-            }
+            WaterLoggingButton(
+                amount: .constant(entry.configuration.amount),
+                action: .intent(
+                    LogWaterAppIntent(amount: entry.configuration.$amount)
+                )
+            )
         }
     }
 }

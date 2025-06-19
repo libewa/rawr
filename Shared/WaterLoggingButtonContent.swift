@@ -22,15 +22,7 @@ struct WaterLoggingButtonContent: View {
         self.failAnimation = false
     }
     var body: some View {
-        Label("Log \(Int(amount))\u{202f}ml of water", systemImage: "drop.fill")
-            .padding(20)
-            .font(.largeTitle)
-            .labelStyle(.iconOnly)
-            .foregroundStyle(.white)
-            .background(.blue, in: .circle)
-            .symbolEffect(.wiggle.down, value: animation)
-            .symbolEffect(.bounce, value: animation)
-            .symbolEffect(.wiggle.right, value: failAnimation)
+        
     }
 }
 

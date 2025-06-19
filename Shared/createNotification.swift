@@ -5,12 +5,15 @@
 //  Created by Linus Warnatz on 18.06.25.
 //
 
+import Foundation
 import SwiftData
 import UserNotifications
-import Foundation
 
-
-func createNotification(timestamp: Date, pastIntake totalToday: Double, modelContext context: ModelContext) {
+func createNotification(
+    timestamp: Date,
+    pastIntake totalToday: Double,
+    modelContext context: ModelContext
+) {
     Task {
         try await UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound])
@@ -30,7 +33,7 @@ func createNotification(timestamp: Date, pastIntake totalToday: Double, modelCon
         let content = UNMutableNotificationContent()
         content.title = "Drink Water"
         content.body =
-        "Drink \(dose) ml of water now to still meet your daily goal!"
+            "Drink \(dose) ml of water now to still meet your daily goal!"
         let trigger = UNCalendarNotificationTrigger(
             dateMatching: Calendar.current.dateComponents(
                 [.hour, .minute, .second],
@@ -46,6 +49,8 @@ func createNotification(timestamp: Date, pastIntake totalToday: Double, modelCon
         let notificationCenter = UNUserNotificationCenter.current()
         try await notificationCenter.add(request)
         context.insert(Notification(id: uuid, timestamp: timestamp))
-        print("Created notification for \(timestamp) with id \(uuid.uuidString)")
+        print(
+            "Created notification for \(timestamp) with id \(uuid.uuidString)"
+        )
     }
-    }
+}

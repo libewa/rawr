@@ -12,7 +12,7 @@ import SwiftData
     static func < (lhs: Notification, rhs: Notification) -> Bool {
         lhs.timestamp < rhs.timestamp
     }
-    
+
     var id: UUID = UUID()
     var timestamp: Date
 
