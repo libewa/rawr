@@ -10,6 +10,17 @@ import SwiftData
 import SwiftUI
 import WidgetKit
 
+struct WaterLoggingButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+        .padding(20)
+        .font(.largeTitle)
+        .labelStyle(.iconOnly)
+        .foregroundStyle(.white)
+        .background(.blue, in: .circle)
+    }
+}
+
 struct WaterLoggingButton: View {
     enum Action {
         case intent(any AppIntent)
@@ -19,6 +30,7 @@ struct WaterLoggingButton: View {
     @Binding var amount: Double
     @State private var animation = false
     @State private var failAnimation = false
+    var showAmount: Bool = false
     var action: Action
 
     var body: some View {
@@ -39,14 +51,6 @@ struct WaterLoggingButton: View {
                         "Log \(Int(amount))\u{202f}ml of water",
                         systemImage: "drop.fill"
                     )
-                    .padding(20)
-                    .font(.largeTitle)
-                    .labelStyle(.iconOnly)
-                    .foregroundStyle(.white)
-                    .background(.blue, in: .circle)
-                    .symbolEffect(.wiggle.down, value: animation)
-                    .symbolEffect(.bounce, value: animation)
-                    .symbolEffect(.wiggle.right, value: failAnimation)
                 }
             case .intent(let intent):
                 Button(intent: intent) {
@@ -54,30 +58,15 @@ struct WaterLoggingButton: View {
                         "Log \(Int(amount))\u{202f}ml of water",
                         systemImage: "drop.fill"
                     )
-                    .padding(20)
-                    .font(.largeTitle)
-                    .labelStyle(.iconOnly)
-                    .foregroundStyle(.white)
-                    .background(.blue, in: .circle)
-                    .symbolEffect(.wiggle.down, value: animation)
-                    .symbolEffect(.bounce, value: animation)
-                    .symbolEffect(.wiggle.right, value: failAnimation)
                 }
-                .simultaneousGesture(
-                    TapGesture().onEnded {
-                        if amount <= 0 {
-                            failAnimation.toggle()
-                            return
-                        } else {
-                            animation.toggle()
-                        }
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
-                )
             }
-            Text("Tap to log water")
+            Text("Tap to log \(showAmount ? "\(Int(amount))\u{202f}ml of " : "")water")
                 .font(.footnote)
         }
+        .buttonStyle(WaterLoggingButtonStyle())
+        .symbolEffect(.wiggle.down, value: animation)
+        .symbolEffect(.bounce, value: animation)
+        .symbolEffect(.wiggle.right, value: failAnimation)
     }
 }
 

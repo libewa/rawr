@@ -13,7 +13,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.modelContext) var context
     @Query var items: [Item]
-    @Query private var notifications: [Notification]
+    @Query var notifications: [Notification]
     @State var amount = 200.0
     @State private var isDeleting = false
     @State private var isProcessing = false
@@ -29,7 +29,7 @@ struct ContentView: View {
         print("Total today: \(total)ml")
         return total
     }
-
+    
     let healthTypes: Set = [
         HKQuantityType(.dietaryWater)
     ]
