@@ -31,6 +31,8 @@
 		15356D8A2E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
 		1540FC742E0465E6003C1926 /* WaterLoggingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */; };
 		1540FC812E04680D003C1926 /* WaterLoggingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */; };
+		1578C38A2E05611500009CEC /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1578C3892E05611500009CEC /* AppIcon.icon */; };
+		1578C38B2E05611500009CEC /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1578C3892E05611500009CEC /* AppIcon.icon */; };
 		15AB2A6D2E02C54900AA6860 /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
 		15AB2A7E2E02C6CB00AA6860 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7D2E02C6C700AA6860 /* Notification.swift */; };
 		15AB2A802E02DF5C00AA6860 /* createNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7F2E02DF5400AA6860 /* createNotification.swift */; };
@@ -114,6 +116,8 @@
 		1530ECB62E01C5EB00A3F4F5 /* rawr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rawr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15356D862E052D56002648CA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLoggingButton.swift; sourceTree = "<group>"; };
+		1578C3892E05611500009CEC /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppIcon.icon; sourceTree = "<group>"; };
+		1578C38C2E0565BE00009CEC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doseToMeetGoal.swift; sourceTree = "<group>"; };
 		15AB2A7D2E02C6C700AA6860 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		15AB2A7F2E02DF5400AA6860 /* createNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createNotification.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				15AB2A7F2E02DF5400AA6860 /* createNotification.swift */,
 				150ECD712E0281AD00B5B0B2 /* Item.swift */,
 				152BE89F2E04968D00C8D0BB /* Assets.xcassets */,
+				1578C3892E05611500009CEC /* AppIcon.icon */,
 				15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */,
 				15356D862E052D56002648CA /* Settings.bundle */,
 				1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */,
@@ -263,6 +268,7 @@
 		1530ECAD2E01C5EB00A3F4F5 = {
 			isa = PBXGroup;
 			children = (
+				1578C38C2E0565BE00009CEC /* README.md */,
 				150ECD9E2E0285FE00B5B0B2 /* WaterTrackingWidgetExtension.entitlements */,
 				150ECD9A2E0281F000B5B0B2 /* Shared */,
 				1530ECB82E01C5EB00A3F4F5 /* rawr */,
@@ -444,6 +450,7 @@
 			files = (
 				15356D8A2E052D56002648CA /* Settings.bundle in Resources */,
 				152BE8EE2E049FF300C8D0BB /* Assets.xcassets in Resources */,
+				1578C38B2E05611500009CEC /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +468,7 @@
 			files = (
 				15356D882E052D56002648CA /* Settings.bundle in Resources */,
 				152BE8ED2E049FF300C8D0BB /* Assets.xcassets in Resources */,
+				1578C38A2E05611500009CEC /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +551,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
@@ -573,7 +581,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
@@ -603,7 +611,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "rawr-watch Watch App/rawr-watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -636,7 +644,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "rawr-watch Watch App/rawr-watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -667,7 +675,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LogWaterAppIntent/LogWaterAppIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogWaterAppIntent/Info.plist;
@@ -693,7 +701,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LogWaterAppIntent/LogWaterAppIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogWaterAppIntent/Info.plist;
@@ -721,11 +729,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rawr/rawr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rawr/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -755,11 +765,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rawr/rawr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rawr/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

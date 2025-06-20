@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>The app can store your water intake in the Health app. This is optional.</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>The app can display the sum of all water intake stored in the Health app.</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-	</array>
-</dict>
+<dict/>
 </plist>
