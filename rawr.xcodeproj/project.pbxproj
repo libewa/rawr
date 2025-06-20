@@ -21,12 +21,14 @@
 		152BE8C02E0496E900C8D0BB /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
 		152BE8C12E0496F100C8D0BB /* logWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A822E02DFFD00AA6860 /* logWater.swift */; };
 		152BE8C22E04972900C8D0BB /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7D2E02C6C700AA6860 /* Notification.swift */; };
-		152BE8C32E049E5100C8D0BB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15AB2A872E02E5F300AA6860 /* Settings.bundle */; };
 		152BE8C42E049E7800C8D0BB /* enableAndSyncHealthIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152BE8932E04968D00C8D0BB /* enableAndSyncHealthIntegration.swift */; };
 		152BE8E52E049F8700C8D0BB /* LogWaterAppIntent.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 152BE8DC2E049F8700C8D0BB /* LogWaterAppIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		152BE8ED2E049FF300C8D0BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152BE89F2E04968D00C8D0BB /* Assets.xcassets */; };
 		152BE8EE2E049FF300C8D0BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152BE89F2E04968D00C8D0BB /* Assets.xcassets */; };
-		1536F0552E04207D00CB0C5C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15AB2A872E02E5F300AA6860 /* Settings.bundle */; };
+		15356D872E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
+		15356D882E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
+		15356D892E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
+		15356D8A2E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
 		1540FC742E0465E6003C1926 /* WaterLoggingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */; };
 		1540FC812E04680D003C1926 /* WaterLoggingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */; };
 		15AB2A6D2E02C54900AA6860 /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
@@ -37,7 +39,6 @@
 		15AB2A842E02E0F800AA6860 /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
 		15AB2A852E02E19C00AA6860 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7D2E02C6C700AA6860 /* Notification.swift */; };
 		15AB2A862E02E1A800AA6860 /* logWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A822E02DFFD00AA6860 /* logWater.swift */; };
-		15AB2A892E02E5F300AA6860 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15AB2A872E02E5F300AA6860 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,12 +112,12 @@
 		152BE8AD2E0496B200C8D0BB /* rawr-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rawr-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		152BE8DC2E049F8700C8D0BB /* LogWaterAppIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = LogWaterAppIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1530ECB62E01C5EB00A3F4F5 /* rawr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rawr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15356D862E052D56002648CA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLoggingButton.swift; sourceTree = "<group>"; };
 		15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doseToMeetGoal.swift; sourceTree = "<group>"; };
 		15AB2A7D2E02C6C700AA6860 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		15AB2A7F2E02DF5400AA6860 /* createNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createNotification.swift; sourceTree = "<group>"; };
 		15AB2A822E02DFFD00AA6860 /* logWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logWater.swift; sourceTree = "<group>"; };
-		15AB2A872E02E5F300AA6860 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -247,10 +248,10 @@
 			isa = PBXGroup;
 			children = (
 				15AB2A7F2E02DF5400AA6860 /* createNotification.swift */,
-				15AB2A872E02E5F300AA6860 /* Settings.bundle */,
 				150ECD712E0281AD00B5B0B2 /* Item.swift */,
 				152BE89F2E04968D00C8D0BB /* Assets.xcassets */,
 				15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */,
+				15356D862E052D56002648CA /* Settings.bundle */,
 				1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */,
 				152BE8932E04968D00C8D0BB /* enableAndSyncHealthIntegration.swift */,
 				15AB2A822E02DFFD00AA6860 /* logWater.swift */,
@@ -432,8 +433,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15356D872E052D56002648CA /* Settings.bundle in Resources */,
 				152BE8A82E04968D00C8D0BB /* Assets.xcassets in Resources */,
-				1536F0552E04207D00CB0C5C /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,8 +442,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15356D8A2E052D56002648CA /* Settings.bundle in Resources */,
 				152BE8EE2E049FF300C8D0BB /* Assets.xcassets in Resources */,
-				152BE8C32E049E5100C8D0BB /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +451,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15356D892E052D56002648CA /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,8 +459,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15356D882E052D56002648CA /* Settings.bundle in Resources */,
 				152BE8ED2E049FF300C8D0BB /* Assets.xcassets in Resources */,
-				15AB2A892E02E5F300AA6860 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +608,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = rawr;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = xyz.libewa.rawr;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -637,6 +641,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = rawr;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = xyz.libewa.rawr;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;

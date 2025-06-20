@@ -35,9 +35,7 @@ func logWater(
             modelContext: context
         )
         Task {
-            if HKHealthStore.isHealthDataAvailable()
-                && UserDefaults.standard.bool(forKey: "syncHealthData")
-            {
+            if HKHealthStore.isHealthDataAvailable() {
                 let healthStore = HKHealthStore()
                 let type = HKQuantityType(.dietaryWater)
                 let quantity = HKQuantity(

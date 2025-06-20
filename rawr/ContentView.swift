@@ -17,9 +17,6 @@ struct ContentView: View {
     @State var amount = 200.0
     @State private var isDeleting = false
     @State private var isProcessing = false
-    @State private var syncHealthData = UserDefaults.standard.bool(
-        forKey: "syncHealthData"
-    )
 
     private var totalToday: Double {
         print(items)
@@ -76,14 +73,12 @@ struct ContentView: View {
                 isProcessing: $isProcessing
             )
         }
-        .onChange(of: syncHealthData, initial: true) {
-            if syncHealthData {
+        .onAppear {
                 Task {
                     try await enableAndSyncHealthIntegration(
                         types: healthTypes
                     )
                 }
-            }
         }
         .padding()
     }

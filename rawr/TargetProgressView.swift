@@ -8,16 +8,8 @@
 import SwiftUI
 
 struct TargetProgressView: View {
+    @AppStorage("dailyGoal") var maxAmount: Double = 2000
     let amount: Double
-    var maxAmount: Double {
-        let goal = UserDefaults.standard.double(forKey: "dailyGoal")
-        if goal > 0 {
-            return goal
-        } else {
-            UserDefaults.standard.set(2000, forKey: "dailyGoal")
-            return 2000  // Default goal if not set
-        }
-    }
 
     var body: some View {
         VStack {

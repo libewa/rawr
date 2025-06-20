@@ -18,18 +18,6 @@
 			<key>DefaultValue</key>
 			<integer>2000</integer>
 		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Enable Health integration</string>
-			<key>Key</key>
-			<string>syncHealthData</string>
-			<key>DefaultValue</key>
-			<false/>
-			<key>TrueValue</key>
-			<string></string>
-		</dict>
 	</array>
 </dict>
 </plist>
