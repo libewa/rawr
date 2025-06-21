@@ -71,19 +71,19 @@ struct ContentView: View {
         })
       )
       Spacer()
-      Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-        Label("Open App Settings", systemImage: "gearshape")
-      }
-      DeleteAllDataButton(
-        isDeleting: $isDeleting,
-        isProcessing: $isProcessing
-      )
     }
     .onAppear {
       Task {
         try await enableAndSyncHealthIntegration(
           types: healthTypes
         )
+      }
+    }
+    .toolbar {
+      ToolbarItem(placement: .topBarTrailing) {
+        Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+          Label("Open App Settings", systemImage: "gearshape")
+        }
       }
     }
     .alert("An error occurred", isPresented: $showError) {
@@ -96,6 +96,8 @@ struct ContentView: View {
 }
 
 #Preview {
-  ContentView()
+  NavigationStack {
+    ContentView()
+  }
     .modelContainer(for: Item.self, inMemory: true)
 }

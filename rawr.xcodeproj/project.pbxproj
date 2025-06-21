@@ -25,12 +25,18 @@
 		152BE8E52E049F8700C8D0BB /* LogWaterAppIntent.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 152BE8DC2E049F8700C8D0BB /* LogWaterAppIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		152BE8ED2E049FF300C8D0BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152BE89F2E04968D00C8D0BB /* Assets.xcassets */; };
 		152BE8EE2E049FF300C8D0BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152BE89F2E04968D00C8D0BB /* Assets.xcassets */; };
-		15356D872E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
 		15356D882E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
-		15356D892E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
 		15356D8A2E052D56002648CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15356D862E052D56002648CA /* Settings.bundle */; };
 		1540FC742E0465E6003C1926 /* WaterLoggingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */; };
 		1540FC812E04680D003C1926 /* WaterLoggingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540FC6E2E0465E6003C1926 /* WaterLoggingButton.swift */; };
+		1566DA7D2E07071200CA4A46 /* createNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7F2E02DF5400AA6860 /* createNotification.swift */; };
+		1566DA7F2E07071A00CA4A46 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150ECD712E0281AD00B5B0B2 /* Item.swift */; };
+		1566DA812E07072300CA4A46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152BE89F2E04968D00C8D0BB /* Assets.xcassets */; };
+		1566DA832E07072900CA4A46 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1578C3892E05611500009CEC /* AppIcon.icon */; };
+		1566DA842E07072900CA4A46 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1578C3892E05611500009CEC /* AppIcon.icon */; };
+		1566DA862E07073000CA4A46 /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
+		1566DA892E07074B00CA4A46 /* logWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A822E02DFFD00AA6860 /* logWater.swift */; };
+		1566DA8B2E07075000CA4A46 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A7D2E02C6C700AA6860 /* Notification.swift */; };
 		1578C38A2E05611500009CEC /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1578C3892E05611500009CEC /* AppIcon.icon */; };
 		1578C38B2E05611500009CEC /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1578C3892E05611500009CEC /* AppIcon.icon */; };
 		15AB2A6D2E02C54900AA6860 /* doseToMeetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2A622E02C54900AA6860 /* doseToMeetGoal.swift */; };
@@ -101,6 +107,16 @@
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1566DA692E0704F700CA4A46 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -136,7 +152,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				LogWaterAppIntent.swift,
 			);
 			target = 152BE8DB2E049F8700C8D0BB /* LogWaterAppIntent */;
 		};
@@ -262,9 +277,9 @@
 				150ECD9E2E0285FE00B5B0B2 /* WaterTrackingWidgetExtension.entitlements */,
 				150ECD9A2E0281F000B5B0B2 /* Shared */,
 				1530ECB82E01C5EB00A3F4F5 /* rawr */,
-				150ECD862E0281C600B5B0B2 /* WaterTrackingWidget */,
 				152BE8AE2E0496B200C8D0BB /* rawr-watch Watch App */,
 				152BE8DD2E049F8700C8D0BB /* LogWaterAppIntent */,
+				150ECD862E0281C600B5B0B2 /* WaterTrackingWidget */,
 				150ECD812E0281C600B5B0B2 /* Frameworks */,
 				1530ECB72E01C5EB00A3F4F5 /* Products */,
 			);
@@ -313,6 +328,7 @@
 				152BE8A92E0496B200C8D0BB /* Sources */,
 				152BE8AA2E0496B200C8D0BB /* Frameworks */,
 				152BE8AB2E0496B200C8D0BB /* Resources */,
+				1566DA692E0704F700CA4A46 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -434,8 +450,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15356D872E052D56002648CA /* Settings.bundle in Resources */,
 				152BE8A82E04968D00C8D0BB /* Assets.xcassets in Resources */,
+				1566DA832E07072900CA4A46 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +469,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15356D892E052D56002648CA /* Settings.bundle in Resources */,
+				1566DA812E07072300CA4A46 /* Assets.xcassets in Resources */,
+				1566DA842E07072900CA4A46 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +518,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1566DA7D2E07071200CA4A46 /* createNotification.swift in Sources */,
+				1566DA892E07074B00CA4A46 /* logWater.swift in Sources */,
+				1566DA8B2E07075000CA4A46 /* Notification.swift in Sources */,
+				1566DA7F2E07071A00CA4A46 /* Item.swift in Sources */,
+				1566DA862E07073000CA4A46 /* doseToMeetGoal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +576,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
@@ -584,7 +606,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
@@ -614,7 +636,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "rawr-watch Watch App/rawr-watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -647,7 +669,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "rawr-watch Watch App/rawr-watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -678,7 +700,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LogWaterAppIntent/LogWaterAppIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogWaterAppIntent/Info.plist;
@@ -704,7 +726,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LogWaterAppIntent/LogWaterAppIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogWaterAppIntent/Info.plist;
@@ -732,7 +754,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rawr/rawr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -768,7 +790,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rawr/rawr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -831,7 +853,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -897,7 +919,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

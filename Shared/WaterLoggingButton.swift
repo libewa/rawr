@@ -26,11 +26,16 @@ struct WaterLoggingButton: View {
     case intent(any AppIntent)
     case closure((Double) -> Void)
   }
+  enum HintStyle {
+    case none
+    case simple
+    case amount
+  }
 
   @Binding var amount: Double
   @State private var animation = false
   @State private var failAnimation = false
-  var showAmount: Bool = false
+  var hintStyle: HintStyle = .amount
   var action: Action
 
   var body: some View {
@@ -60,8 +65,10 @@ struct WaterLoggingButton: View {
           )
         }
       }
-      Text("Tap to log \(showAmount ? "\(Int(amount))\u{202f}ml of " : "")water")
-        .font(.footnote)
+      if hintStyle != .none {
+        Text("Tap to log \(hintStyle == .amount ? "\(Int(amount))\u{202f}ml of " : "")water")
+          .font(.footnote)
+      }
     }
     .buttonStyle(WaterLoggingButtonStyle())
     .symbolEffect(.wiggle.down, value: animation)

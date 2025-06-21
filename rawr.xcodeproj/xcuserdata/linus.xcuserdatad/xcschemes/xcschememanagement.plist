@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>LogWaterAppIntent.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>WaterTrackingComplicationExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>WaterTrackingWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>rawr-watch Watch App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,17 +32,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>150ECD7F2E0281C600B5B0B2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>152BE8AC2E0496B200C8D0BB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>152BE8DB2E049F8700C8D0BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -36,7 +36,7 @@ struct ContentView: View {
       )
       WaterLoggingButton(
         amount: $amount,
-        showAmount: true,
+        hintStyle: .amount,
         action: .closure({
           do {
             try logWater(
@@ -50,9 +50,7 @@ struct ContentView: View {
           }
         })
       )
-      .onChange(of: amount) {
-        print(amount)
-      }
+      .handGestureShortcut(.primaryAction, isEnabled: amount > 0)
       .focusable(true)
       .digitalCrownRotation(
         $amount,

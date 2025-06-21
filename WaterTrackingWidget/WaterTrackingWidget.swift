@@ -9,75 +9,6 @@ import SwiftData
 import SwiftUI
 import WidgetKit
 
-struct Provider: AppIntentTimelineProvider {
-  func placeholder(in context: Context) -> SimpleEntry {
-    SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
-  }
-
-  func snapshot(
-    for configuration: ConfigurationAppIntent,
-    in context: Context
-  ) async -> SimpleEntry {
-    SimpleEntry(date: Date(), configuration: configuration)
-  }
-
-  func timeline(
-    for configuration: ConfigurationAppIntent,
-    in context: Context
-  ) async -> Timeline<SimpleEntry> {
-    var entries: [SimpleEntry] = []
-
-    // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-    let currentDate = Date()
-    for hourOffset in 0..<5 {
-      let entryDate = Calendar.current.date(
-        byAdding: .hour,
-        value: hourOffset,
-        to: currentDate
-      )!
-      let entry = SimpleEntry(
-        date: entryDate,
-        configuration: configuration
-      )
-      entries.append(entry)
-    }
-
-    return Timeline(entries: entries, policy: .atEnd)
-  }
-
-  //    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
-  //        // Generate a list containing the contexts this widget is relevant in.
-  //    }
-}
-
-struct SimpleEntry: TimelineEntry {
-  let date: Date
-  let configuration: ConfigurationAppIntent
-}
-
-struct WaterTrackingWidgetView: View {
-  var entry: Provider.Entry
-  @Query private var items: [Item]
-
-  private var totalToday: Double {
-    items.filter({ Calendar.current.isDateInToday($0.timestamp) })
-      .compactMap({ $0.amount }).reduce(0, +)
-  }
-
-  var body: some View {
-    VStack {
-      Text("\(Int(totalToday)) ml today")
-
-      WaterLoggingButton(
-        amount: .constant(entry.configuration.amount),
-        action: .intent(
-          LogWaterAppIntent(amount: entry.configuration.$amount)
-        )
-      )
-    }
-  }
-}
-
 struct WaterTrackingWidget: Widget {
   var sharedModelContainer: ModelContainer = {
     let schema = Schema([
@@ -102,13 +33,13 @@ struct WaterTrackingWidget: Widget {
     AppIntentConfiguration(
       kind: kind,
       intent: ConfigurationAppIntent.self,
-      provider: Provider()
+      provider: TimelineProvider()
     ) { entry in
       WaterTrackingWidgetView(entry: entry)
         .containerBackground(.fill.tertiary, for: .widget)
         .modelContainer(sharedModelContainer)
     }
-    .supportedFamilies([.systemSmall, .accessoryInline])
+    .supportedFamilies([.systemSmall, .accessoryInline, .accessoryCircular, .accessoryRectangular])
   }
 }
 
@@ -139,4 +70,17 @@ extension ConfigurationAppIntent {
   SimpleEntry(date: .now, configuration: .portableBottle)
 }
 
-//TODO: Lock screen widgets are clipped off at the bottom
+#Preview(as: .accessoryCircular) {
+    WaterTrackingWidget()
+} timeline: {
+  SimpleEntry(date: .now, configuration: .glass)
+  SimpleEntry(date: .now, configuration: .portableBottle)
+}
+
+#Preview(as: .accessoryRectangular) {
+  WaterTrackingWidget()
+} timeline: {
+  SimpleEntry(date: .now, configuration: .glass)
+  SimpleEntry(date: .now, configuration: .portableBottle)
+}
+
