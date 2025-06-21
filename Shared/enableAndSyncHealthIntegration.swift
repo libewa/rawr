@@ -16,10 +16,7 @@ extension ContentView {
     if HKHealthStore.isHealthDataAvailable() {
       let store = HKHealthStore()
       // Asynchronously request authorization to the data.
-      try await store.requestAuthorization(
-        toShare: types,
-        read: types
-      )
+      try await store.requestAuthorization(toShare: types, read: types)
 
       for type in types {
         // Start by reading all matching data.
