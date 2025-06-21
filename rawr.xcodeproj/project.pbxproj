@@ -161,13 +161,6 @@
 			);
 			target = 152BE8AC2E0496B200C8D0BB /* rawr-watch Watch App */;
 		};
-		1530ECC32E01C5EC00A3F4F5 /* Exceptions for "rawr" folder in "rawr" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 1530ECB52E01C5EB00A3F4F5 /* rawr */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -197,9 +190,6 @@
 		};
 		1530ECB82E01C5EB00A3F4F5 /* rawr */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1530ECC32E01C5EC00A3F4F5 /* Exceptions for "rawr" folder in "rawr" target */,
-			);
 			path = rawr;
 			sourceTree = "<group>";
 		};
@@ -327,6 +317,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				15DFC3AD2E06889F0050C02D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				152BE8AE2E0496B200C8D0BB /* rawr-watch Watch App */,
@@ -374,6 +365,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				15DFC3AB2E0688950050C02D /* PBXTargetDependency */,
 				150ECD932E0281C700B5B0B2 /* PBXTargetDependency */,
 				152BE8B62E0496B300C8D0BB /* PBXTargetDependency */,
 				152BE8E42E049F8700C8D0BB /* PBXTargetDependency */,
@@ -421,6 +413,9 @@
 			);
 			mainGroup = 1530ECAD2E01C5EB00A3F4F5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				15DFC3A92E0688460050C02D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1530ECB72E01C5EB00A3F4F5 /* Products */;
 			projectDirPath = "";
@@ -541,6 +536,14 @@
 			target = 152BE8DB2E049F8700C8D0BB /* LogWaterAppIntent */;
 			targetProxy = 152BE8E32E049F8700C8D0BB /* PBXContainerItemProxy */;
 		};
+		15DFC3AB2E0688950050C02D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 15DFC3AA2E0688950050C02D /* SwiftLintBuildToolPlugin */;
+		};
+		15DFC3AD2E06889F0050C02D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 15DFC3AC2E06889F0050C02D /* SwiftLintBuildToolPlugin */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -551,7 +554,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
@@ -564,7 +567,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.WaterTrackingWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -581,7 +584,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WaterTrackingWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterTrackingWidget/Info.plist;
@@ -594,7 +597,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.WaterTrackingWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -611,7 +614,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "rawr-watch Watch App/rawr-watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -625,7 +628,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -644,7 +647,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "rawr-watch Watch App/rawr-watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -658,7 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -675,7 +678,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LogWaterAppIntent/LogWaterAppIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogWaterAppIntent/Info.plist;
@@ -686,7 +689,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.LogWaterAppIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -701,7 +704,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LogWaterAppIntent/LogWaterAppIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogWaterAppIntent/Info.plist;
@@ -712,7 +715,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr.LogWaterAppIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -729,11 +732,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rawr/rawr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = rawr/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -745,7 +748,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -765,11 +768,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rawr/rawr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3ZKC6VXD5Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = rawr/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app can display the sum of all water intake stored in the Health app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app can store your water intake in the Health app. This is optional.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -781,7 +784,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.libewa.rawr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -828,6 +831,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -848,12 +852,14 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -891,6 +897,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -905,11 +912,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -962,6 +971,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15DFC3A92E0688460050C02D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15DFC3AA2E0688950050C02D /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15DFC3A92E0688460050C02D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		15DFC3AC2E06889F0050C02D /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15DFC3A92E0688460050C02D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1530ECAE2E01C5EB00A3F4F5 /* Project object */;
 }

@@ -10,7 +10,7 @@ import WidgetKit
 
 @main
 struct WaterTrackingWidgetBundle: WidgetBundle {
-    var body: some Widget {
-        WaterTrackingWidget()
-    }
+  var body: some Widget {
+    WaterTrackingWidget()
+  }
 }
