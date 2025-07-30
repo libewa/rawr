@@ -27,10 +27,9 @@ struct LogWaterAppIntent: AppIntent {
 
   @Query var notifications: [Notification]
   @Query private var items: [Item]
+  @Query(filter: Item.isInTodayPredicate, sort: \Item.timestamp, animation: .default) var itemsToday: [Item]
   private var totalToday: Double {
-    return items.filter({
-      Calendar.current.isDateInToday($0.timestamp)
-    }).compactMap({ $0.amount }).reduce(0, +)
+    return itemsToday.compactMap({ $0.amount }).reduce(0, +)
   }
 
   @MainActor func perform() async throws -> some IntentResult {

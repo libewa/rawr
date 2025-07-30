@@ -14,6 +14,14 @@ final class Item {
   var amount: Double
   var id: UUID = UUID()
 
+  static var isInTodayPredicate: Predicate<Item> {
+    let startOfToday = Calendar.current.startOfDay(for: Date())
+    let endOfToday = Calendar.current.date(byAdding: .day, value: 1, to: startOfToday)!
+    return #Predicate<Item> {
+      return $0.timestamp >= startOfToday && $0.timestamp < endOfToday
+    }
+  }
+
   init(timestamp: Date) {
     self.timestamp = timestamp
     self.amount = 200

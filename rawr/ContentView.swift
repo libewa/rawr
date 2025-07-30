@@ -13,6 +13,7 @@ import SwiftUI
 struct ContentView: View {
   @Environment(\.modelContext) var context
   @Query var items: [Item]
+  @Query(filter: Item.isInTodayPredicate, sort: \Item.timestamp, animation: .default) var itemsToday: [Item]
   @Query var notifications: [Notification]
   @State var amount = 200.0
   @State private var isDeleting = false
@@ -21,12 +22,7 @@ struct ContentView: View {
   @State var showError = false
 
   private var totalToday: Double {
-    print(items)
-    let total = items.filter({
-      Calendar.current.isDateInToday($0.timestamp)
-    }).compactMap({ $0.amount }).reduce(0, +)
-    print("Total today: \(total)ml")
-    return total
+    itemsToday.compactMap({ $0.amount }).reduce(0, +)
   }
 
   let healthTypes: Set = [
@@ -89,7 +85,10 @@ struct ContentView: View {
     .alert("An error occurred", isPresented: $showError) {
       Button("OK", role: .cancel) {}
     } message: {
-      Text(error?.localizedDescription ?? "Unknown error")
+      VStack {
+        Text(error?.localizedDescription ?? "Unknown error")
+        Text("Try restarting the app from the App Switcher.")
+      }
     }
     .padding()
   }

@@ -12,12 +12,12 @@ import SwiftData
 struct WaterTrackingWidgetView: View {
   var entry: TimelineProvider.Entry
   @Query private var items: [Item]
+  @Query(filter: Item.isInTodayPredicate, sort: \Item.timestamp, animation: .default) var itemsToday: [Item]
   @Environment(\.widgetFamily) var widgetFamily
   @AppStorage("dailyGoal") var maxAmount: Double = 2000
 
   private var totalToday: Double {
-    items.filter({ Calendar.current.isDateInToday($0.timestamp) })
-      .compactMap({ $0.amount }).reduce(0, +)
+    itemsToday.compactMap({ $0.amount }).reduce(0, +)
   }
 
   var body: some View {
